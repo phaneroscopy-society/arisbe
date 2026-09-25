@@ -50,3 +50,29 @@ jobs:
           name: arisbe-egif-qualification
           path: qualification/egif/evidence
           if-no-files-found: error
+
+  independent-cgif:
+    name: Independent Cogitant and Amine cross-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install native and virtual-X prerequisites
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends cmake g++ unzip xvfb xauth openjdk-17-jdk
+      - name: Cross-check frozen EGIF-origin CGIF vectors
+        run: bash qualification/egif/independent_crosscheck.sh
+      - name: Print independent receipt
+        if: always()
+        run: cat qualification/egif/evidence/independent/receipt.json || true
+      - name: Upload independent evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: arisbe-egif-independent-cgif
+          path: qualification/egif/evidence/independent
+          if-no-files-found: error

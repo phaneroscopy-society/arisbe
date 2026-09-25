@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "source_notation": "EGIF",
+    "producer_repository": "phaneroscopy-society/arisbe",
+    "producer_commit": "c8c35eb43764fd204b72853e6d56737e053dd970",
+    "original_bridge_run": 34279075660,
+    "original_artifact_id": 10076873608,
+    "original_artifact_sha256": "f6fc79cf65188f019d7399ae226d220c49719b0dd42197ed20e924401639a74f",
+    "original_receipt_sha256": "c7d02ba3a19184ff0036648deb9a4c2028509c40f89f6015b39a6c6952171baf"
+  },
+  "vectors": [
+    {
+      "id": "constant",
+      "file": "constant.cgif",
+      "source_egif": "(human \"Socrates\")",
+      "sha256": "a661acffac1a32bc26a54ca106b5fdc66b3fdb7ccd0d3f50de0801cf4344b51f",
+      "amine_seed": "types=human;individuals=Socrates"
+    },
+    {
+      "id": "binary",
+      "file": "binary.cgif",
+      "source_egif": "(loves *x \"Socrates\")",
+      "sha256": "222bb0c8305ebc0e66169e0a4e2d29d06b399d67b2ca9ffee70ee98d42f09be3",
+      "amine_seed": "relations=loves;individuals=Socrates"
+    },
+    {
+      "id": "shared-identity",
+      "file": "shared-identity.cgif",
+      "source_egif": "(human *x) (mortal x)",
+      "sha256": "ca45b3a0efee592210cfd8aae805438421c8828ecc3d70d9d85decfb5ecbc864",
+      "amine_seed": "types=human,mortal"
+    },
+    {
+      "id": "cross-cut",
+      "file": "cross-cut.cgif",
+      "source_egif": "(human *x) ~[(mortal x)]",
+      "sha256": "a68cdf5c46788960431ca8029a556dff04400ae65ddb2ffa0c1c3d86d1a379ce",
+      "amine_seed": "types=human,mortal"
+    },
+    {
+      "id": "two-boundary",
+      "file": "two-boundary.cgif",
+      "source_egif": "(human *x) ~[~[(mortal x)]]",
+      "sha256": "eded9dfadef5dbd4e6459e8f1b28565b650d426471ad939dc20901c8c6e1e5a5",
+      "amine_seed": "types=human,mortal"
+    }
+  ],
+  "claim_boundary": "These are frozen CGIF bytes emitted from the qualified EGIF bridge. Cogitant and Amine are independent execution oracles for their own parse/write behavior only."
+}\n
